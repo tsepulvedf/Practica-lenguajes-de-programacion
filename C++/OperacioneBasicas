@@ -1,0 +1,81 @@
+Function: main/0
+Constants: None, 'Primer numero a operar: ', 'Segundo numero a operar: ', 0, 'Division por cero no es posible'
+Locals:x, y
+Globals: int, input, print
+BEGIN
+             	LOAD_GLOBAL              0 
+              	LOAD_GLOBAL              1 
+              	LOAD_CONST               1 
+              	CALL_FUNCTION            1
+              	CALL_FUNCTION            1
+             	STORE_FAST               0 
+
+            	LOAD_GLOBAL              0 
+             	LOAD_GLOBAL              1 
+             	LOAD_CONST               2 
+             	CALL_FUNCTION            1
+             	CALL_FUNCTION            1
+             	STORE_FAST               1 
+
+            	LOAD_FAST                1 
+             	LOAD_CONST               3 
+             	COMPARE_OP               2 
+             	POP_JUMP_IF_FALSE       etiqueta1
+
+            	LOAD_GLOBAL              2 
+             	LOAD_CONST               4 
+             	CALL_FUNCTION            1
+             	POP_TOP
+
+            	LOAD_GLOBAL              2 
+             	LOAD_FAST                0 
+             	LOAD_FAST                1 
+             	BINARY_ADD
+            	CALL_FUNCTION            1
+             	POP_TOP
+
+           	LOAD_GLOBAL              2 
+             	LOAD_FAST                0 
+             	LOAD_FAST                1 
+             	BINARY_SUBTRACT
+             	CALL_FUNCTION            1
+             	POP_TOP
+
+           	LOAD_GLOBAL              2 
+             	LOAD_FAST                0 
+             	LOAD_FAST                1 
+             	BINARY_MULTIPLY
+             	CALL_FUNCTION            1
+             	POP_TOP
+             	JUMP_FORWARD            etiqueta2
+
+etiqueta1:	LOAD_GLOBAL              2 
+             	LOAD_FAST                0 
+             	LOAD_FAST                1 
+             	BINARY_ADD
+             	CALL_FUNCTION            1
+             	POP_TOP
+
+           	LOAD_GLOBAL              2 
+             	LOAD_FAST                0 
+            	LOAD_FAST                1 
+            	BINARY_SUBTRACT
+             	CALL_FUNCTION            1
+            	POP_TOP
+
+ 	    	LOAD_GLOBAL              2 
+            	LOAD_FAST                0 
+            	LOAD_FAST                1 
+            	BINARY_MULTIPLY
+            	CALL_FUNCTION            1
+            	POP_TOP
+
+          	LOAD_GLOBAL              2 
+            	LOAD_FAST                0 
+            	LOAD_FAST                1 
+            	BINARY_FLOOR_DIVIDE
+            	CALL_FUNCTION            1
+            	POP_TOP
+etiqueta2:  	LOAD_CONST               0 
+            	RETURN_VALUE
+END
