@@ -1,0 +1,110 @@
+Function: main/0
+Constants: None, "Ingresar numero del triangulo de Pascal: ", 0, "Error: Valor negativo o cero", 1, True, False
+Locals: estado, n, lista, filas, lista_temp, i
+Globals: True, int, input, print, False, range, append, len
+BEGIN
+          LOAD_CONST                     5
+          STORE_FAST                     0
+          SETUP_LOOP               label04
+label00:  LOAD_FAST                      0
+          POP_JUMP_IF_FALSE        label03
+          LOAD_GLOBAL                    1
+          LOAD_GLOBAL                    2
+          LOAD_CONST                     1
+          CALL_FUNCTION                  1
+          CALL_FUNCTION                  1
+          STORE_FAST                     1
+          LOAD_FAST                      1
+          LOAD_CONST                     2
+          COMPARE_OP                     2
+          POP_JUMP_IF_TRUE         label01
+          LOAD_FAST                      1
+          LOAD_CONST                     2
+          COMPARE_OP                     0
+          POP_JUMP_IF_FALSE        label02
+label01:  LOAD_GLOBAL                    3
+          LOAD_CONST                     3
+          CALL_FUNCTION                  1
+          POP_TOP
+          JUMP_ABSOLUTE            label00
+label02:  LOAD_CONST                     6
+          STORE_FAST                     0
+          JUMP_ABSOLUTE            label00
+label03:  POP_BLOCK
+label04:  BUILD_LIST                     0
+          STORE_FAST                     2
+          SETUP_LOOP               label12
+          LOAD_GLOBAL                    5
+          LOAD_FAST                      1
+          CALL_FUNCTION                  1
+          GET_ITER
+label05:  FOR_ITER                 label11
+          STORE_FAST                     3
+          BUILD_LIST                     0
+          STORE_FAST                     4
+          SETUP_LOOP               label10
+          LOAD_GLOBAL                    5
+          LOAD_FAST                      3
+          LOAD_CONST                     4
+          BINARY_ADD
+          CALL_FUNCTION                  1
+          GET_ITER
+label06:  FOR_ITER                 label09
+          STORE_FAST                     5
+          LOAD_FAST                      5
+          LOAD_CONST                     2
+          COMPARE_OP                     2
+          POP_JUMP_IF_TRUE         label07
+          LOAD_FAST                      5
+          LOAD_FAST                      3
+          COMPARE_OP                     2
+          POP_JUMP_IF_FALSE        label08
+label07:  LOAD_FAST                      4
+          LOAD_ATTR                      6
+          LOAD_CONST                     4
+          CALL_FUNCTION                  1
+          POP_TOP
+          JUMP_ABSOLUTE            label06
+label08:  LOAD_FAST                      4
+          LOAD_ATTR                      6
+          LOAD_FAST                      2
+          LOAD_FAST                      3
+          LOAD_CONST                     4
+          BINARY_SUBTRACT
+          BINARY_SUBSCR
+          LOAD_FAST                      5
+          LOAD_CONST                     4
+          BINARY_SUBTRACT
+          BINARY_SUBSCR
+          LOAD_FAST                      2
+          LOAD_FAST                      3
+          LOAD_CONST                     4
+          BINARY_SUBTRACT
+          BINARY_SUBSCR
+          LOAD_FAST                      5
+          BINARY_SUBSCR
+          BINARY_ADD
+          CALL_FUNCTION                  1
+          POP_TOP
+          JUMP_ABSOLUTE            label06
+label09:  POP_BLOCK
+label10:  LOAD_FAST                      2
+          LOAD_ATTR                      6
+          LOAD_FAST                      4
+          CALL_FUNCTION                  1
+          POP_TOP
+          JUMP_ABSOLUTE            label05
+label11:  POP_BLOCK
+label12:  LOAD_GLOBAL                    3
+          LOAD_FAST                      2
+          LOAD_GLOBAL                    7
+          LOAD_FAST                      2
+          CALL_FUNCTION                  1
+          LOAD_CONST                     4
+          BINARY_SUBTRACT
+          BINARY_SUBSCR
+          CALL_FUNCTION                  1
+          POP_TOP
+          LOAD_CONST                     0
+          RETURN_VALUE
+END
