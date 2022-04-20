@@ -1,71 +1,101 @@
 Function: main/0
-Constants: None, "Introduce numero de filas y columnas: ", "Fila {}, Columna {} : ", 1
-Locals: filas, columnas, matriz, i, j, valor
-Globals: int, input, range, append, float, format
+Constants: None
+Locals: a, b, c
+Globals: crear_matrices, sumar_matrices, print
+BEGIN
+          LOAD_GLOBAL                    0    
+          STORE_FAST                     0    
+          LOAD_GLOBAL                    0
+          STORE_FAST                     1
+          LOAD_GLOBAL                    1
+          LOAD_FAST                      0
+          LOAD_FAST                      1
+          CALL_FUNCTION                  2
+          STORE_FAST                     2
+          LOAD_GLOBAL                    2
+          LOAD_FAST                      2
+          CALL_FUNCTION                  1
+          POP_TOP
+          LOAD_CONST                     0
+          RETURN_VALUE
+END
+Function: sumar_matrices/2
+Constants: None, 0
+Locals: m1, m2, msuma, i, j
+Globals: len, range, append, None
 BEGIN
           LOAD_GLOBAL                    0
-          LOAD_GLOBAL                    1
-          LOAD_CONST                     1
-          CALL_FUNCTION                  1
-          CALL_FUNCTION                  1
-          STORE_FAST                     0
           LOAD_FAST                      0
-          STORE_FAST                     1
+          CALL_FUNCTION                  1
+          LOAD_GLOBAL                    0
+          LOAD_FAST                      1
+          CALL_FUNCTION                  1
+          COMPARE_OP                     2
+          POP_JUMP_IF_FALSE        label06
+          LOAD_GLOBAL                    0
+          LOAD_FAST                      0
+          LOAD_CONST                     1
+          BINARY_SUBSCR
+          CALL_FUNCTION                  1
+          LOAD_GLOBAL                    0
+          LOAD_FAST                      1
+          LOAD_CONST                     1
+          BINARY_SUBSCR
+          CALL_FUNCTION                  1
+          COMPARE_OP                     2
+          POP_JUMP_IF_FALSE        label06
           BUILD_LIST                     0
           STORE_FAST                     2
-          SETUP_LOOP               label08
-          LOAD_GLOBAL                    2
+          SETUP_LOOP               label05
+          LOAD_GLOBAL                    1
+          LOAD_GLOBAL                    0
           LOAD_FAST                      0
           CALL_FUNCTION                  1
+          CALL_FUNCTION                  1
           GET_ITER
-label00:  FOR_ITER                 label07
+label00:  FOR_ITER                 label04
           STORE_FAST                     3
           LOAD_FAST                      2
-          LOAD_ATTR                      3
+          LOAD_ATTR                      2
           BUILD_LIST                     0
           CALL_FUNCTION                  1
           POP_TOP
-          SETUP_LOOP               label06
-          LOAD_GLOBAL                    2
-          LOAD_FAST                      0
-          CALL_FUNCTION                  1
-          GET_ITER
-label01:  FOR_ITER                 label05
-          STORE_FAST                     3
-          SETUP_LOOP               label04
-          LOAD_GLOBAL                    2
-          LOAD_FAST                      1
-          CALL_FUNCTION                  1
-          GET_ITER
-label02:  FOR_ITER                 label03
-          STORE_FAST                     4
-          LOAD_GLOBAL                    4
+          SETUP_LOOP               label03
           LOAD_GLOBAL                    1
-          LOAD_CONST                     2
-          LOAD_ATTR                      5
-          LOAD_FAST                      3
-          LOAD_CONST                     3
-          BINARY_ADD
-          LOAD_FAST                      4
-          LOAD_CONST                     3
-          BINARY_ADD
-          CALL_FUNCTION                  2
+          LOAD_GLOBAL                    0
+          LOAD_FAST                      0
+          LOAD_CONST                     1
+          BINARY_SUBSCR
           CALL_FUNCTION                  1
           CALL_FUNCTION                  1
-          STORE_FAST                     5
+          GET_ITER
+label01:  FOR_ITER                 label02
+          STORE_FAST                     4
           LOAD_FAST                      2
           LOAD_FAST                      3
           BINARY_SUBSCR
-          LOAD_ATTR                      3
-          LOAD_FAST                      5
+          LOAD_ATTR                      2
+          LOAD_FAST                      0
+          LOAD_FAST                      3
+          BINARY_SUBSCR
+          LOAD_FAST                      4
+          BINARY_SUBSCR
+          LOAD_FAST                      1
+          LOAD_FAST                      3
+          BINARY_SUBSCR
+          LOAD_FAST                      4
+          BINARY_SUBSCR
+          BINARY_ADD
           CALL_FUNCTION                  1
           POP_TOP
-          JUMP_ABSOLUTE            label02
-label03:  POP_BLOCK
-label04:  JUMP_ABSOLUTE            label01
-label05:  POP_BLOCK
-label06:  JUMP_ABSOLUTE            label00
-label07:  POP_BLOCK
-label08:  LOAD_CONST                     0
+          JUMP_ABSOLUTE            label01
+label02:  POP_BLOCK
+label03:  JUMP_ABSOLUTE            label00
+label04:  POP_BLOCK
+label05:  LOAD_FAST                      2
+          RETURN_VALUE
+label06:  LOAD_CONST                     0
+          RETURN_VALUE
+          LOAD_CONST                     0
           RETURN_VALUE
 END
