@@ -6,10 +6,5 @@ class FactorialJCoCo{
     int ejecutarArchivo();
     int imprimirArchivo();
     FactorialJCoCo();
-
-
 };
-
-
-
 #endif //C___FactorialJCoCo_H
